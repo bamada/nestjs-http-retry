@@ -1,5 +1,12 @@
 
 
+## [0.1.2](https://github.com/bamada/nestjs-http-retry/compare/0.1.1...0.1.2) (2024-05-06)
+
+
+### Bug Fixes
+
+* **setup:** add missing barrel file ([3803c40](https://github.com/bamada/nestjs-http-retry/commit/3803c40f87da7bd16c86e27c12b0a83c40830685))
+
 ## [0.1.1](https://github.com/bamada/nestjs-http-retry/compare/0.1.0...0.1.1) (2024-05-06)
 
 # 0.1.0 (2024-05-06)
