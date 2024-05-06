@@ -45,32 +45,35 @@ export class HttpRetryStrategiesService {
     );
   }
 
-  post<T, R>(url: string, data: T) {
-    // return this.httpService.post<R>(url, data).pipe(
-    //   retry(this.axiosRetryOptions.maxRetryAttempts),
-    //   catchError((error: AxiosError) =>
-    //     throwError(() => new Error(error.message)),
-    //   ),
-    // );
-  }
+  //!\ todo implement
+  // post<T, R>(url: string, data: T) {
+  //   // return this.httpService.post<R>(url, data).pipe(
+  //   //   retry(this.axiosRetryOptions.maxRetryAttempts),
+  //   //   catchError((error: AxiosError) =>
+  //   //     throwError(() => new Error(error.message)),
+  //   //   ),
+  //   // );
+  // }
 
-  put<T, R>(url: string, data: T) {
-    // return this.httpService.put<R>(url, data).pipe(
-    //   retry(this.axiosRetryOptions.maxRetryAttempts),
-    //   catchError((error: AxiosError) =>
-    //     throwError(() => new Error(error.message)),
-    //   ),
-    // );
-  }
+  //!\ todo implement
+  // put<T, R>(url: string, data: T) {
+  //   // return this.httpService.put<R>(url, data).pipe(
+  //   //   retry(this.axiosRetryOptions.maxRetryAttempts),
+  //   //   catchError((error: AxiosError) =>
+  //   //     throwError(() => new Error(error.message)),
+  //   //   ),
+  //   // );
+  // }
 
-  delete<R>(url: string) {
-    // return this.httpService.delete<R>(url).pipe(
-    //   retry(this.axiosRetryOptions.maxRetryAttempts),
-    //   catchError((error: AxiosError) =>
-    //     throwError(() => new Error(error.message)),
-    //   ),
-    // );
-  }
+  //!\ todo implement
+  // delete<R>(url: string) {
+  //   // return this.httpService.delete<R>(url).pipe(
+  //   //   retry(this.axiosRetryOptions.maxRetryAttempts),
+  //   //   catchError((error: AxiosError) =>
+  //   //     throwError(() => new Error(error.message)),
+  //   //   ),
+  //   // );
+  // }
 
   /**
    * A structured logging method to log the details of the HTTP attempt.
