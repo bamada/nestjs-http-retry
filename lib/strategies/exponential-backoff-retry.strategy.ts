@@ -1,4 +1,4 @@
-import { RetryStrategy } from 'src/http-retry-strategies.interface';
+import { RetryStrategy } from '../http-retry-strategies.interface';
 
 /**
  * Implements an exponential backoff retry strategy where the delay between

@@ -1,7 +1,7 @@
 import { HttpService } from '@nestjs/axios';
 import { Inject, Injectable, Logger } from '@nestjs/common';
 import { catchError, retry, throwError, timer } from 'rxjs';
-import { RetryStrategy } from 'src/http-retry-strategies.interface';
+import { RetryStrategy } from './http-retry-strategies.interface';
 import { AxiosRequestConfig, AxiosError } from 'axios';
 
 @Injectable()

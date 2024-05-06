@@ -56,14 +56,17 @@ $ npm i @bamada/nestjs-http-retry
 To configure the retry strategies, pass the desired settings when registering the module:
 
 ```typescript
-import { HttpRetryStrategiesModule } from '@bamada/nestjs-http-retry';
+import {
+  HttpRetryStrategiesModule,
+  RetryStrategyType,
+} from '@bamada/nestjs-http-retry';
 
 @Module({
   imports: [
     HttpRetryStrategiesModule.register({
-      type: 'exponential',
+      type: RetryStrategyType.Interval,
       maxAttempts: 3,
-      initialDelayMs: 1000,
+      intervalMs: 1000,
     }),
   ],
   // Other module properties

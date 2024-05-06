@@ -6,9 +6,9 @@ import {
   RetryStrategyOptions,
   RetryStrategyType,
 } from './http-retry-strategies.interface';
-import { ExponentialBackoffRetryStrategy } from 'src/strategies/exponential-backoff-retry.strategy';
-import { ConstantIntervalRetryStrategy } from 'src/strategies/constant-interval-retry.strategy';
-import { NoRetryStrategy } from 'src/strategies/no-retry-strategy';
+import { ExponentialBackoffRetryStrategy } from './strategies/exponential-backoff-retry.strategy';
+import { ConstantIntervalRetryStrategy } from './strategies/constant-interval-retry.strategy';
+import { NoRetryStrategy } from './strategies/no-retry-strategy';
 
 /**
  * The HttpRetryStrategiesModule is responsible for providing a configurable

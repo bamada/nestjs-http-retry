@@ -1,4 +1,4 @@
-import { RetryStrategy } from 'src/http-retry-strategies.interface';
+import { RetryStrategy } from '../http-retry-strategies.interface';
 
 /**
  * Implements a strategy that specifies no retries should be made.
