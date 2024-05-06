@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "A robust NestJS module providing configurable HTTP request retry strategies, including Exponential Backoff and Constant Interval, to enhance the resilience of your applications.",
   "author": "bamada",
-  "private": true,
+  "private": false,
   "license": "MIT",
   "url": "https://github.com/bamada/nestjs-http-retry#readme",
   "scripts": {
