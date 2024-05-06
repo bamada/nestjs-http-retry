@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://github.com/your-github/nestjs-http-retry" target="blank"><img src="https://test.todo" width="120" alt="NestJS HTTP Retry Module Logo" /></a>
+  <a href="https://github.com/your-github/nestjs-http-retry" target="blank"><img src="logo.png" width="120" alt="NestJS HTTP Retry Module Logo" /></a>
 </p>
 
 <p align="center">A resilient <a href="http://nestjs.com/" target="blank">NestJS</a> module to handle HTTP requests with configurable retry strategies.</p>
