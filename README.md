@@ -1,73 +1,122 @@
 <p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
+  <a href="https://github.com/your-github/nestjs-http-retry" target="blank"><img src="https://test.todo" width="120" alt="NestJS HTTP Retry Module Logo" /></a>
 </p>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+<p align="center">A resilient <a href="http://nestjs.com/" target="blank">NestJS</a> module to handle HTTP requests with configurable retry strategies.</p>
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+
+---
+
+## Table of Contents
+
+- [Description](#description)
+- [Features](#features)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Usage](#usage)
+- [Examples](#examples)
+- [Contribute & Disclaimer](#contribute--disclaimer)
+- [License](#license)
+- [Contributors](#contributors-)
+
+---
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+This module integrates an HTTP retry functionality into the NestJS framework, providing configurable retry strategies like Exponential Backoff or Constant Interval retries.
+
+## Features
+
+The NestJS HTTP Retry module supports these key features:
+
+- Easy-to-use configurable retry strategies
+- Exponential Backoff retries
+- Constant Interval retries
+- No-retry option
+
+---
 
 ## Installation
 
-```bash
-$ npm install
-```
-
-## Running the app
+You can install the module using yarn or npm:
 
 ```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+$ yarn add @bamada/nestjs-http-retry
 ```
 
-## Test
+OR
 
 ```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+$ npm i @bamada/nestjs-http-retry
 ```
 
-## Support
+## Configuration
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+To configure the retry strategies, pass the desired settings when registering the module:
 
-## Stay in touch
+```typescript
+import { HttpRetryStrategiesModule } from '@bamada/nestjs-http-retry';
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+@Module({
+  imports: [
+    HttpRetryStrategiesModule.register({
+      type: 'exponential',
+      maxAttempts: 3,
+      initialDelayMs: 1000,
+    }),
+  ],
+  // Other module properties
+})
+export class AppModule {}
+```
+
+## Usage
+
+Once configured, use the `HttpRetryStrategiesService` to make HTTP requests with the built-in retry strategies.
+
+## Examples
+
+Below is a simple example of how to use the HTTP Retry Strategies service:
+
+```typescript
+import { Injectable } from '@nestjs/common';
+import { HttpRetryStrategiesService } from '@bamada/nestjs-http-retry';
+
+@Injectable()
+export class YourService {
+  constructor(private readonly httpRetryService: HttpRetryStrategiesService) {}
+
+  async getResource() {
+    return this.httpRetryService.get('https://your.api/resource').toPromise();
+  }
+}
+```
+
+## Contribute & Disclaimer
+
+Feel free to contribute by submitting pull requests or opening issues. This module comes with no warranty; use it at your own risk.
 
 ## License
 
-Nest is [MIT licensed](LICENSE).
+Distributed under the MIT License. See `LICENSE` for more information.
+
+## Contributors ✨
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tbody>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/bamada"><img src="https://avatars.githubusercontent.com/u/7466570?v=4?s=100" width="100px;" alt="madcam"/><br /><sub><b>madcam</b></sub></a><br /><a href="https://github.com/bamada/nest-slack-bolt/commits?author=bamada" title="Tests">⚠️</a> <a href="https://github.com/bamada/nest-slack-bolt/commits?author=bamada" title="Code">💻</a> <a href="https://github.com/bamada/nest-slack-bolt/commits?author=bamada" title="Documentation">📖</a> <a href="https://github.com/bamada/nest-slack-bolt/issues?q=author%3Abamada" title="Bug reports">🐛</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
