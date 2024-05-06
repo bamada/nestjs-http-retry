@@ -112,7 +112,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <table>
   <tbody>
     <tr>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/bamada"><img src="https://avatars.githubusercontent.com/u/7466570?v=4?s=100" width="100px;" alt="madcam"/><br /><sub><b>madcam</b></sub></a><br /><a href="https://github.com/bamada/nest-slack-bolt/commits?author=bamada" title="Tests">⚠️</a> <a href="https://github.com/bamada/nest-slack-bolt/commits?author=bamada" title="Code">💻</a> <a href="https://github.com/bamada/nest-slack-bolt/commits?author=bamada" title="Documentation">📖</a> <a href="https://github.com/bamada/nest-slack-bolt/issues?q=author%3Abamada" title="Bug reports">🐛</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/bamada"><img src="https://avatars.githubusercontent.com/u/7466570?v=4?s=100" width="100px;" alt="madcam"/><br /><sub><b>madcam</b></sub></a><br /><a href="https://github.com/bamada/nestjs-http-retry/commits?author=bamada" title="Tests">⚠️</a> <a href="https://github.com/bamada/nestjs-http-retry/commits?author=bamada" title="Code">💻</a> <a href="https://github.com/bamada/nestjs-http-retry/commits?author=bamada" title="Documentation">📖</a> <a href="https://github.com/bamada/nestjs-http-retry/issues?q=author%3Abamada" title="Bug reports">🐛</a></td>
     </tr>
   </tbody>
 </table>
