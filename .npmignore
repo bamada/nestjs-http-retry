@@ -1,5 +1,6 @@
 # source
-src
+lib
+test
 index.ts
 package-lock.json
 tslint.json
@@ -11,6 +12,7 @@ tsconfig.json
 .release-it.json
 .eslintignore
 .eslintrc.js
+.husky
 
 # Env files
 .env
