@@ -1,5 +1,7 @@
 
 
+## [0.1.1](https://github.com/bamada/nestjs-http-retry/compare/0.1.0...0.1.1) (2024-05-06)
+
 # 0.1.0 (2024-05-06)
 
 
