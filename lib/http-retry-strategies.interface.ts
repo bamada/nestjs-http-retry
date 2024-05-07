@@ -51,6 +51,11 @@ export enum RetryStrategyType {
    * Indicates a retry strategy that uses an exponential backoff algorithm for delaying retries.
    */
   Exponential = 'exponential',
+
+  /**
+   * Indicates a retry strategy that uses a polynomial backoff algorithm for delaying retries.
+   */
+  Polynomial = 'polynomial',
 }
 
 /**
@@ -94,6 +99,31 @@ interface ExponentialBackoffRetryStrategyOptions {
 }
 
 /**
+ * Options for the polynomial backoff retry strategy.
+ */
+interface PolynomialBackoffRetryStrategyOptions {
+  /**
+   * The type of retry strategy, which is exponential in this case.
+   */
+  type: RetryStrategyType.Polynomial;
+
+  /**
+   * The maximum number of retries to attempt.
+   */
+  maxAttempts: number;
+
+  /**
+   * The initial delay in milliseconds before the first retry, which doubles with each subsequent retry.
+   */
+  initialDelayMs: number;
+
+  /**
+   * The degree of the polynomial function to calculate the delay. Must be a positive integer.
+   */
+  degree: number;
+}
+
+/**
  * Options indicating that no retries should be performed.
  */
 interface NoRetryStrategyOptions {
@@ -109,4 +139,5 @@ interface NoRetryStrategyOptions {
 export type RetryStrategyOptions =
   | IntervalRetryStrategyOptions
   | ExponentialBackoffRetryStrategyOptions
+  | PolynomialBackoffRetryStrategyOptions
   | NoRetryStrategyOptions;

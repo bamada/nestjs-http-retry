@@ -9,6 +9,7 @@ import {
 import { ExponentialBackoffRetryStrategy } from './strategies/exponential-backoff-retry.strategy';
 import { ConstantIntervalRetryStrategy } from './strategies/constant-interval-retry.strategy';
 import { NoRetryStrategy } from './strategies/no-retry-strategy';
+import { PolynomialBackoffRetryStrategy } from './strategies';
 
 /**
  * The HttpRetryStrategiesModule is responsible for providing a configurable
@@ -37,6 +38,12 @@ export class HttpRetryStrategiesModule {
             return new ConstantIntervalRetryStrategy(
               options.maxAttempts,
               options.intervalMs,
+            );
+          case RetryStrategyType.Polynomial:
+            return new PolynomialBackoffRetryStrategy(
+              options.maxAttempts,
+              options.initialDelayMs,
+              options.degree,
             );
           default:
             return new NoRetryStrategy();
