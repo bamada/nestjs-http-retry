@@ -104,6 +104,10 @@ Feel free to contribute by submitting pull requests or opening issues. This modu
 
 Distributed under the MIT License. See `LICENSE` for more information.
 
+## TODO
+ - Implementation of other http methods (Post, Put, Delete, Patch)
+ - Add more retry strategies
+
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
