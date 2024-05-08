@@ -6,10 +6,11 @@ import {
   RetryStrategyOptions,
   RetryStrategyType,
 } from './http-retry-strategies.interface';
-import { ExponentialBackoffRetryStrategy } from './strategies/exponential-backoff-retry.strategy';
-import { ConstantIntervalRetryStrategy } from './strategies/constant-interval-retry.strategy';
-import { NoRetryStrategy } from './strategies/no-retry-strategy';
+import { ExponentialBackoffRetryStrategy } from './strategies/exponential-backoff-retry';
+import { ConstantIntervalRetryStrategy } from './strategies/constant-interval-retry';
+import { NoRetryStrategy } from './strategies/no-retry';
 import { PolynomialBackoffRetryStrategy } from './strategies';
+import { FibonacciBackoffRetryStrategy } from './strategies/fibonacci-backoff-retry';
 
 /**
  * The HttpRetryStrategiesModule is responsible for providing a configurable
@@ -44,6 +45,11 @@ export class HttpRetryStrategiesModule {
               options.maxAttempts,
               options.initialDelayMs,
               options.degree,
+            );
+          case RetryStrategyType.Fibonacci:
+            return new FibonacciBackoffRetryStrategy(
+              options.maxAttempts,
+              options.initialDelayMs,
             );
           default:
             return new NoRetryStrategy();
