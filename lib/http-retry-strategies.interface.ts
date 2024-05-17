@@ -56,6 +56,11 @@ export enum RetryStrategyType {
    * Indicates a retry strategy that uses a polynomial backoff algorithm for delaying retries.
    */
   Polynomial = 'polynomial',
+
+  /**
+   * Indicates a retry strategy that uses a fibonacci backoff algorithm for delaying retries.
+   */
+  Fibonacci = 'fibonacci',
 }
 
 /**
@@ -113,7 +118,8 @@ interface PolynomialBackoffRetryStrategyOptions {
   maxAttempts: number;
 
   /**
-   * The initial delay in milliseconds before the first retry, which doubles with each subsequent retry.
+   * The initial delay in milliseconds before the first attempt, which grows polynomially based on the number of attempts made.
+   * The growth is dictated by the specified polynomial degree; for instance, with a degree of two, the delay follows a quadratic growth curve.
    */
   initialDelayMs: number;
 
@@ -134,10 +140,32 @@ interface NoRetryStrategyOptions {
 }
 
 /**
+ * Options for the fibonacci backoff retry strategy.
+ */
+interface FibonacciBackoffRetryStrategyOptions {
+  /**
+   * The type of retry strategy, which is fibonacci in this case.
+   */
+  type: RetryStrategyType.Fibonacci;
+
+  /**
+   * The maximum number of retries to attempt.
+   */
+  maxAttempts: number;
+
+  /**
+   * The initial delay in milliseconds before the first attempt, which evolves according to the Fibonacci sequence on each subsequent attempt.
+   */
+  initialDelayMs: number;
+}
+
+/**
  * Union type combining all possible retry strategy options.
  */
 export type RetryStrategyOptions =
   | IntervalRetryStrategyOptions
   | ExponentialBackoffRetryStrategyOptions
   | PolynomialBackoffRetryStrategyOptions
+  | PolynomialBackoffRetryStrategyOptions
+  | FibonacciBackoffRetryStrategyOptions
   | NoRetryStrategyOptions;
